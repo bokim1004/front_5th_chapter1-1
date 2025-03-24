@@ -2,7 +2,7 @@
   <footer class="bg-gray-200 p-4 text-center">
     <p>&copy; 2024 항해플러스. All rights reserved.</p>
   </footer>
-`,m=()=>{const e=a.logIn(),t=window.location.pathname,n=location.hostname.includes("github.io")?"/front-5th-chapter1-1":"",o=e?`
+`,m=()=>{const e=a.logIn(),t=window.location.pathname,n=location.hostname.includes("github.io")?"/front_5th_chapter1-1":"",o=e?`
         <li><a href="${n}/profile" data-route-link class="${t===`${n}/profile`?"text-blue-600":"text-gray-600"}">프로필</a></li>
         <li><a href="${n}/login" id="logout" data-route-link class="text-gray-600">로그아웃</a></li>
         `:`<li><a href="${n}/login" data-route-link class="${t===`${n}/login`?"text-blue-600":"text-gray-600"}">로그인</a></li>`;return`
@@ -143,7 +143,7 @@
       <p class="text-gray-600 mb-8">
         요청하신 페이지가 존재하지 않거나 이동되었을 수 있습니다.
       </p>
-     ${`<a href="${location.hostname.includes("github.io")?"/front-5th-chapter1-1":""}/" class="bg-blue-600 text-white px-4 py-2 rounded font-bold">
+     ${`<a href="${location.hostname.includes("github.io")?"/front_5th_chapter1-1":""}/" class="bg-blue-600 text-white px-4 py-2 rounded font-bold">
   홈으로 돌아가기
 </a >`}
     </div >
