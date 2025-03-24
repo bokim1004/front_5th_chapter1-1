@@ -3,16 +3,16 @@
     <p>&copy; 2024 항해플러스. All rights reserved.</p>
   </footer>
 `,m=()=>{const e=a.logIn(),t=window.location.pathname,n=location.hostname.includes("github.io")?"/front-5th-chapter1-1":"",o=e?`
-        <li><a href="/profile" data-route-link class="${t===`${n}/profile`?"text-blue-600":"text-gray-600"}">프로필</a></li>
-        <li><a href="/login" id="logout" data-route-link class="text-gray-600">로그아웃</a></li>
-        `:`<li><a href="/login" data-route-link class="${t===`${n}/login`?"text-blue-600":"text-gray-600"}">로그인</a></li>`;return`
+        <li><a href="${n}/profile" data-route-link class="${t===`${n}/profile`?"text-blue-600":"text-gray-600"}">프로필</a></li>
+        <li><a href="${n}/login" id="logout" data-route-link class="text-gray-600">로그아웃</a></li>
+        `:`<li><a href="${n}/login" data-route-link class="${t===`${n}/login`?"text-blue-600":"text-gray-600"}">로그인</a></li>`;return`
     <header class="bg-blue-600 text-white p-4 sticky top-0">
         <h1 class="text-2xl font-bold">항해플러스</h1>
       </header>
 
       <nav class="bg-white shadow-md p-2 sticky top-14">
         <ul class="flex justify-around">
-          <li><a href="/" data-route-link class=${t===`${n}/`?"text-blue-600":"text-gray-600"}>홈</a></li>
+          <li><a href="${n}/" data-route-link class=${t===`${n}/`?"text-blue-600":"text-gray-600"}>홈</a></li>
       ${o}
         </ul>
       </nav>`},f=()=>{const e=a.getState();return`
