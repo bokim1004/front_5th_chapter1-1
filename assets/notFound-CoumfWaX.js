@@ -1,25 +1,25 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const n of o)if(n.type==="childList")for(const c of n.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function s(o){const n={};return o.integrity&&(n.integrity=o.integrity),o.referrerPolicy&&(n.referrerPolicy=o.referrerPolicy),o.crossOrigin==="use-credentials"?n.credentials="include":o.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function r(o){if(o.ep)return;o.ep=!0;const n=s(o);fetch(o.href,n)}})();const b={username:"",email:"",bio:""},a={localStorageKey:"user",getUser(){const t=localStorage.getItem(this.localStorageKey);return t?JSON.parse(t):b},setUser(t){const e=JSON.stringify(t);localStorage.setItem(this.localStorageKey,e)},logIn(){return!!this.getUser().username},logout(){this.setUser(null),localStorage.removeItem(this.localStorageKey)}},m=`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const s of t)if(s.type==="childList")for(const n of s.addedNodes)n.tagName==="LINK"&&n.rel==="modulepreload"&&a(n)}).observe(document,{childList:!0,subtree:!0});function l(t){const s={};return t.integrity&&(s.integrity=t.integrity),t.referrerPolicy&&(s.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?s.credentials="include":t.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function a(t){if(t.ep)return;t.ep=!0;const s=l(t);fetch(t.href,s)}})();const u={username:"",email:"",bio:""},r={localStorageKey:"user",getUser(){const o=localStorage.getItem(this.localStorageKey);return o?JSON.parse(o):u},setUser(o){const e=JSON.stringify(o);localStorage.setItem(this.localStorageKey,e)},logIn(){return!!this.getUser().username},logout(){this.setUser(null),localStorage.removeItem(this.localStorageKey)}},c=`
   <footer class="bg-gray-200 p-4 text-center">
     <p>&copy; 2024 항해플러스. All rights reserved.</p>
   </footer>
-`,f=()=>{const e=location.hostname.includes("github.io")?"/front_5th_chapter1-1":"",s=a.logIn(),o=location.hash?location.hash.replace(/^#/,""):window.location.pathname,n=s?`
-        <li><a href="${e}/profile" data-route-link class="${o===`${e}/profile`?"text-blue-600  font-bold":"text-gray-600"}">프로필</a></li>
+`,d=()=>{const e=location.hostname.includes("github.io")?"/front_5th_chapter1-1":"",l=r.logIn(),t=location.hash?location.hash.replace(/^#/,""):window.location.pathname,s=l?`
+        <li><a href="${e}/profile" data-route-link class="${t===`${e}/profile`?"text-blue-600  font-bold":"text-gray-600"}">프로필</a></li>
         <li><a href="#" id="logout"  class="text-gray-600">로그아웃</a></li>
-        `:`<li><a href="${e}/login" data-route-link class="${o===`${e}/login`?"text-blue-600  font-bold":"text-gray-600"}">로그인</a></li>`;return`
+        `:`<li><a href="${e}/login" data-route-link class="${t===`${e}/login`?"text-blue-600  font-bold":"text-gray-600"}">로그인</a></li>`;return`
     <header class="bg-blue-600 text-white p-4 sticky top-0">
         <h1 class="text-2xl font-bold">항해플러스</h1>
       </header>
 
       <nav class="bg-white shadow-md p-2 sticky top-14">
         <ul class="flex justify-around">
-          <li><a href="${e}/" data-route-link class="${o===`${e}/`?"text-blue-600 font-bold":"text-gray-600"}">홈</a></li>
-      ${n}
+          <li><a href="${e}/" data-route-link class="${t===`${e}/`?"text-blue-600 font-bold":"text-gray-600"}">홈</a></li>
+      ${s}
         </ul>
-      </nav>`},g=()=>{const t=a.getUser();return`
+      </nav>`},m=()=>{const o=r.getUser();return`
     <div id="root">
       <div class="bg-gray-100 min-h-screen flex justify-center">
         <div class="max-w-md w-full">
-          ${f()}
+          ${d()}
           <main class="p-4">
             <div class="bg-white p-8 rounded-lg shadow-md">
               <h2 class="text-2xl font-bold text-center text-blue-600 mb-8">
@@ -36,7 +36,7 @@
                     type="text"
                     id="username"
                     name="username"
-                    value="${t.username||""}"
+                    value="${o.username||""}"
                     class="w-full p-2 border rounded"
                   />
                 </div>
@@ -50,7 +50,7 @@
                     type="email"
                     id="email"
                     name="email"
-                    value="${t.email||""}"
+                    value="${o.email||""}"
                     class="w-full p-2 border rounded"
                   />
                 </div>
@@ -66,7 +66,7 @@
                     rows="4"
                     class="w-full p-2 border rounded"
                   >
-                  ${t.bio||""}</textarea>
+                  ${o.bio||""}</textarea>
                 </div>
                 <button
                   type="submit"
@@ -77,10 +77,10 @@
               </form>
             </div>
           </main>
-          ${m}
+          ${c}
         </div>
       </div>
-  </div > `},p=()=>{const t=document.getElementById("profile-form");t.addEventListener("submit",e=>{e.preventDefault();const s=new FormData(t);console.log("formData.get",s.get("email")),a.setUser({username:s.get("username")||"",email:s.get("email")||"",bio:s.get("bio")||""}),alert("프로필 업데이트가 완료되었어요.")})},h=()=>{document.body.innerHTML=g()},x=location.hostname.includes("github.io"),u=x?"/front_5th_chapter1-1":"",y=()=>`
+  </div > `},g=()=>{const o=document.getElementById("profile-form");o.addEventListener("submit",e=>{e.preventDefault();const l=new FormData(o);console.log("formData.get",l.get("email")),r.setUser({username:l.get("username")||"",email:l.get("email")||"",bio:l.get("bio")||""}),alert("프로필 업데이트가 완료되었어요.")})},b=()=>{document.body.innerHTML=m()},f=location.hostname.includes("github.io"),i=f?"/front_5th_chapter1-1":"",h=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
       <h1 class="text-2xl font-bold text-center text-blue-600 mb-8">항해플러스</h1>
@@ -102,7 +102,7 @@
       </div>
     </div>
   </main>
-`,v=()=>{const t=document.getElementById("login-form"),e=document.getElementById("username");t.addEventListener("submit",s=>{s.preventDefault();const r=e.value.trim();if(!r){alert("이메일 또는 전화번호를 입력해주세요.");return}if(r.length<3){alert("3글자 이상 입력해주세요.");return}a.setUser({username:r,email:"",bio:""}),location.hash?location.hash=`${u}/profile`:history.pushState({},"",`${u}/profile`),h()})},w=[{id:1,name:"홍길동",time:"5분 전",text:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{id:2,name:"김철수",time:"15분 전",text:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{id:3,name:"이영희",time:"30분 전",text:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"}],$=()=>{const t=w.map(e=>`
+`,x=()=>{const o=document.getElementById("login-form"),e=document.getElementById("username");o.addEventListener("submit",l=>{l.preventDefault();const a=e.value.trim();if(!a){alert("이메일 또는 전화번호를 입력해주세요.");return}if(a.length<3){alert("3글자 이상 입력해주세요.");return}r.setUser({username:a,email:"",bio:""}),location.hash?location.hash=`${i}/profile`:history.pushState({},"",`${i}/profile`),b()})},p=[{id:1,name:"홍길동",time:"5분 전",text:"오늘 날씨가 정말 좋네요. 다들 좋은 하루 보내세요!"},{id:2,name:"김철수",time:"15분 전",text:"새로운 프로젝트를 시작했어요. 열심히 코딩 중입니다!"},{id:3,name:"이영희",time:"30분 전",text:"오늘 점심 메뉴 추천 받습니다. 뭐가 좋을까요?"}],y=()=>{const o=p.map(e=>`
   <div class="bg-white rounded-lg shadow p-4">
     <div class="flex items-center mb-2">
       <img src="https://placehold.co/40" alt="프로필" class="rounded-full mr-2">
@@ -122,19 +122,19 @@
   
   <div class="bg-gray-100 min-h-screen flex justify-center">
     <div class="max-w-md w-full">
-    ${f()}
+    ${d()}
       <main class="p-4">
         <div class="mb-4 bg-white rounded-lg shadow p-4">
           <textarea class="w-full p-2 border rounded" placeholder="무슨 생각을 하고 계신가요?"></textarea>
           <button class="mt-2 bg-blue-600 text-white px-4 py-2 rounded">게시</button>
         </div>
         <div class="space-y-4">
-        ${t}
+        ${o}
         </div>
       </main>
-    ${m}
+    ${c}
     </div>
-  </div>`},P=()=>`
+  </div>`},v=()=>`
   <main class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-lg shadow-md w-full text-center" style="max-width: 480px">
       <h1 class="text-2xl font-bold text-blue-600 mb-4">항해플러스</h1>
@@ -147,4 +147,4 @@
   홈으로 돌아가기
 </a >`}
     </div >
-  </main > `,L=location.hostname.includes("github.io"),l=L?"/front_5th_chapter1-1":"",d={[`${l}/`]:$,[`${l}/login`]:y,[`${l}/profile`]:g};function i(){const t=document.getElementById("root"),e=window.location.pathname,s=a.logIn(),r=d[e]||P;if(t){if(t.innerHTML=r(),e===`${l}/profile`&&!s){history.replaceState(null,"",`${l}/login`),t.innerHTML=d[`${l}/login`]();return}if(e===`${l}/login`&&s){history.replaceState(null,"",`${l}/`),t.innerHTML=d[`${l}/`]();return}if(e===`${l}/login`&&!s){v();return}if(e===`${l}/profile`&&s){p();return}}}function S(t){history.pushState({},"",t),i()}const H=location.hostname.includes("github.io"),E=H?"/front_5th_chapter1-1":"";window.addEventListener("DOMContentLoaded",i);window.addEventListener("popstate",i);document.addEventListener("click",t=>{const e=t.target.closest("a[data-route-link]");if(t.target.closest("#logout")){t.preventDefault(),a.logout(),history.replaceState(null,"",`${E}/login`),i();return}e&&(t.preventDefault(),S(e.getAttribute("href")))});
+  </main > `;export{h as L,y as M,v as N,m as P,r as S,x as s,g as u};
